@@ -3,6 +3,7 @@ from ..items import ItemsamazonSpider
 from bs4 import BeautifulSoup
 from scrapy.selector import Selector
 from scrapy.http import HtmlResponse
+
 #PRUEBA4
 class AmazonSpiderSpider(scrapy.Spider):
     name = 'amazon_spider'
@@ -14,3 +15,6 @@ class AmazonSpiderSpider(scrapy.Spider):
         item_name = response.css('productTitle::text').extract()
         item_price = response.css('priceblock_ourprice , title , imgTagWrapperId').css('::text').extract()
         pass
+
+ams = AmazonSpiderSpider()
+ams.parse()
